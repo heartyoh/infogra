@@ -1,0 +1,24 @@
+{
+  "name": "infogra",
+  "version": "0.0.0",
+  "description": "Infographic Modeller & Viewer",
+  "readmeFilename": "README.md",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heartyoh/infogra.git"
+  },
+  "keywords": [
+    "infographic",
+    "canvas",
+    "barcode"
+  ],
+  "author": "heartyoh",
+  "license": "BSD"
+}
