@@ -1,0 +1,5 @@
+Delo.EDITMODE = {
+	SELECT : 0x00,
+	CREATE : 0x01,
+	PANE : 0x02
+}
