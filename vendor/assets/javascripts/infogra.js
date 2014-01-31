@@ -2741,8 +2741,6 @@ Delo.SelectionLayer.prototype = {
 
 Kinetic.Util.extend(Delo.SelectionLayer, Kinetic.Layer);
 
-var bwip = require('bwip');
-
 BarcodeView = function(config) {
     this.build(config);
 };
@@ -2788,7 +2786,7 @@ BarcodeView.prototype = {
 	buildImageUrl : function() {
 		var model = this.getAttr('model');
 
-		return global.bwip.base64({
+		return BWIPJS.imageUrl({
 			symbol : model.get('symbol'),
 			text : model.get('text'),
 			alttext : model.get('alttext'),
