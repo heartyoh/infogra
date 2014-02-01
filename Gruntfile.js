@@ -1,6 +1,31 @@
 'use strict';
 
 module.exports = function (grunt) {
+  var sourceFiles = [
+    'toolbox.js',
+    'module.js',
+    'Constant.js',
+    'Command.js',
+    'ModeManager.js',
+    'CommandManager.js',
+    'SelectionManager.js',
+    'AlignManager.js',
+    'ClipboardManager.js',
+    'model/Part.js',
+    'model/Document.js',
+    'view/PartView.js',
+    'view/Handle.js',
+    'view/DragTracker.js',
+    'view/Viewer.js',
+    'view/DocumentView.js',
+    'command/*.js',
+    'model/part/*.js',
+    'view/layer/*.js',
+    'view/part/*.js' 
+  ].map(function(file) {
+    return require('path').join('src', 'infogra', file);
+  });
+
   // Show elapsed time at the end
   require('time-grunt')(grunt);
   // Load all grunt tasks
@@ -23,44 +48,22 @@ module.exports = function (grunt) {
         stripBanners: true
       }, 
       dist: {
-        src: [
-        'toolbox.js',
-        'module.js',
-        'Constant.js',
-        'Command.js',
-        'ModeManager.js',
-        'CommandManager.js',
-        'SelectionManager.js',
-        'AlignManager.js',
-        'ClipboardManager.js',
-        'model/Part.js',
-        'model/Document.js',
-        'view/PartView.js',
-        'view/Handle.js',
-        'view/DragTracker.js',
-        'view/Viewer.js',
-        'view/DocumentView.js',
-        'command/*.js',
-        'model/part/*.js',
-        'view/layer/*.js',
-        'view/part/*.js' ].map(function(file) {
-          return require('path').join('src', 'infogra', file);
-        }),
-        dest: 'build/infogra.js'
+        src: sourceFiles,
+        dest: 'dist/infogra.js'
       }
     },
     uglify: {
-      build: {
-        src: 'build/infogra.js',
-        dest: 'build/infogra-min.js'
+      dist: {
+        src: 'dist/infogra.js',
+        dest: 'dist/infogra-min.js'
       }
     },
     copy: {
-      main: {
+      rails: {
         files: [
           {
             expand: true,
-            cwd: 'build',
+            cwd: 'dist',
             src: ['**'],
             dest: 'vendor/assets/javascripts/',
             filter: 'isFile'
@@ -99,7 +102,9 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('dist', ['concat:dist', 'uglify:dist', 'copy:rails'])
+
   // Default task.
-  grunt.registerTask('default', ['concat', 'uglify', 'copy']);
+  grunt.registerTask('default', ['dist']);
 
 };
