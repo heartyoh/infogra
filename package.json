@@ -10,8 +10,8 @@
 		"underscore": ">=1.5.0",
 		"backbone": "1.1.0",
     "bwip": ">=0.6.3",
-    "KineticJS": "git://github.com/ericdrowell/KineticJS.git",
-    "canvas": ">=1.1.0"
+    "canvas": ">=1.1.0",
+    "KineticJS": "git://github.com/ericdrowell/KineticJS.git"
 	},
   "devDependencies": {
     "grunt-contrib-jshint": "~0.7.0",

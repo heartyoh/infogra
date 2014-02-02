@@ -1,0 +1,39 @@
+{
+  "name": "infogra",
+  "main": "index.js",
+  "version": "0.1.2",
+  "homepage": "https://github.com/heartyoh/infogra",
+  "authors": [
+    "heartyoh <heartyoh@gmail.com>"
+  ],
+  "description": "Infographic Modeller & Viewer",
+  "keywords": [
+    "infographic",
+    "canvas",
+    "barcode"
+  ],
+  "dependencies": {
+    "underscore": ">=1.5.0",
+    "jquery": ">=2.1.0",
+    "backbone": "1.1.0",
+    "bwip": "git://github.com/heartyoh/bwip",
+    "KineticJS": "git://github.com/ericdrowell/KineticJS.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "*.gemspec",
+    "*.gem",
+    "Gemfile",
+    "Gruntfile.js",
+    "package.json",
+    "Rakefile",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "lib",
+    "dist",
+    "test",
+    "tests"
+  ]
+}
