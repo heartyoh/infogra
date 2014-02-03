@@ -79,8 +79,8 @@ module.exports = function (grunt) {
       gruntfile: {
         src: 'Gruntfile.js'
       },
-      lib: {
-        src: ['lib/**/*.js']
+      src: {
+        src: ['src/**/*.js']
       },
       test: {
         src: ['test/**/*.js']
@@ -91,9 +91,9 @@ module.exports = function (grunt) {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
-      lib: {
-        files: '<%= jshint.lib.src %>',
-        tasks: ['jshint:lib', 'nodeunit']
+      src: {
+        files: '<%= jshint.src.src %>',
+        tasks: ['jshint:src', 'nodeunit']
       },
       test: {
         files: '<%= jshint.test.src %>',
@@ -102,7 +102,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('dist', ['concat:dist', 'uglify:dist', 'copy:rails'])
+  grunt.registerTask('dist', ['concat:dist', 'uglify:dist', 'copy:rails']);
 
   // Default task.
   grunt.registerTask('default', ['dist']);
