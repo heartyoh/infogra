@@ -3,17 +3,22 @@
 (function () {
     'use strict';
 
-    describe('모델러의 생성에 있어서', function() {
-    	describe('Dimension과 관련해서는', function() {
-    		var modeler = new Delo.DocumentView({
-				el : undefined,
-			    collection : new Delo.Document()
-        	});
+    describe('Delo.DocumentView', function() {
+    	describe('when create', function() {
+    		var modeler;
 
-    		it('기본 폭은 800 픽셀이다.', function() {
+			before(function() {
+				modeler = new Delo.DocumentView({
+					el : undefined,
+				    collection : new Delo.Document()
+				});
+			});
+
+    		it('default width should be 800.', function() {
             	modeler.collection.width.should.equal(800);
     		});
-    		it('기본 높이은 600 픽셀이다.', function() {
+
+    		it('default height should be 600.', function() {
             	modeler.collection.height.should.equal(600);
     		});
     	})
