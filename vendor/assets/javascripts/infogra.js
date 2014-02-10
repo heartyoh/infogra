@@ -1,4 +1,4 @@
-/*! infogra - v0.1.3 - 2014-02-10
+/*! infogra - v0.1.4 - 2014-02-10
 * https://github.com/heartyoh/infogra
 * Copyright (c) 2014 Hearty, Oh.; Licensed MIT */
 //refer to http://blog.usefunnel.com/2011/03/js-inheritance-with-backbone/
@@ -689,7 +689,7 @@ Delo.Document = Backbone.Collection.extend({
 		
 		try {
 			if(data) {
-				if(data instanceof String) {
+				if(typeof(data) === 'string') {
 					collection = JSON.parse(data);
 				} else {
 					collection = data;

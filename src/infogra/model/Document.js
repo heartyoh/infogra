@@ -13,7 +13,7 @@ Delo.Document = Backbone.Collection.extend({
 		
 		try {
 			if(data) {
-				if(data instanceof String) {
+				if(typeof(data) === 'string') {
 					collection = JSON.parse(data);
 				} else {
 					collection = data;

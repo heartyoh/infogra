@@ -1,7 +1,7 @@
 {
   "name": "infogra",
   "main": "index.js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/heartyoh/infogra",
   "authors": [
     "heartyoh <heartyoh@gmail.com>"
