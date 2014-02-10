@@ -365,7 +365,7 @@ define(function (require) {
 
             beforeEach(function() {
                 viewer = new infogra.Viewer({
-                    el : $('#diagram'),
+                    el : document.getElementById('viewer'),
                     collection : new Delo.Document()
                 });
 

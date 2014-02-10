@@ -11,7 +11,7 @@ define(function (require) {
 
             beforeEach(function() {
                 modeler = new infogra.DocumentView({
-                    el : undefined,
+                    el : document.getElementById('modeler'),
                     collection : new Delo.Document()
                 });
             });
