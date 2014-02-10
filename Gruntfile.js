@@ -47,15 +47,15 @@ module.exports = function (grunt) {
         banner: '<%= banner %>',
         stripBanners: true
       }, 
-      dist: {
+      build: {
         src: sourceFiles,
-        dest: 'dist/infogra.js'
+        dest: 'infogra.js'
       }
     },
     uglify: {
-      dist: {
-        src: 'dist/infogra.js',
-        dest: 'dist/infogra-min.js'
+      build: {
+        src: 'infogra.js',
+        dest: 'infogra-min.js'
       }
     },
     copy: {
@@ -63,8 +63,8 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'dist',
-            src: ['**'],
+            cwd: '.',
+            src: ['infogra.js', 'infogra-min.js'],
             dest: 'vendor/assets/javascripts/',
             filter: 'isFile'
           }
@@ -110,9 +110,9 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('dist', ['concat:dist', 'uglify:dist', 'copy:rails']);
+  grunt.registerTask('build', ['concat:build', 'uglify:build', 'copy:rails']);
 
   // Default task.
-  grunt.registerTask('default', ['dist']);
+  grunt.registerTask('default', ['build']);
 
 };

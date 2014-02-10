@@ -5,10 +5,10 @@ require.config({
     'chai'          : 'test/bower_components/chai/chai',
     'underscore'    : 'bower_components/underscore/underscore-min',
     'jquery'        : 'bower_components/jquery/jquery.min',
-    'bwip'          : 'bower_components/bwip/dist/bwip-min',
+    'bwip'          : 'bower_components/bwip/bwip-min',
     'backbone'      : 'bower_components/backbone/backbone',
     'KineticJS'     : 'bower_components/KineticJS/kinetic.min',
-    'infogra'       : 'dist/infogra'
+    'infogra'       : 'infogra'
   },
   shim: {
     underscore: {
