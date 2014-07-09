@@ -1,4 +1,4 @@
-/*! infogra - v0.1.4 - 2014-02-10
+/*! infogra - v0.1.6 - 2014-07-09
 * https://github.com/heartyoh/infogra
 * Copyright (c) 2014 Hearty, Oh.; Licensed MIT */
 //refer to http://blog.usefunnel.com/2011/03/js-inheritance-with-backbone/
@@ -2760,17 +2760,17 @@ BarcodeView.prototype = {
 			x : model.get('x'),
 			y : model.get('y')
 		};
-		
+
         // call super constructor
         Kinetic.Image.call(this, attributes);
         // this.shapeType = 'BarcodeView';
 
 		this.setAttr('model', model);
-		
+
 		var self = this;
 
 		this.imageObj = new Image();
-		
+
 		this.imageObj.onload = function() {
 			self.setImage(self.imageObj);
 			model.set({
@@ -2779,35 +2779,48 @@ BarcodeView.prototype = {
 			});
 			self.getLayer().draw();
 		};
-				
+
 		this.imageObj.src = this.buildImageUrl();
-		
+
 		/* set event handlers */
 		model.bind('remove', this._remove, this);
 		model.bind('change', this._change, this);
     },
-	
-	buildImageUrl : function() {
-		var model = this.getAttr('model');
 
-		return BWIPJS.imageUrl({
-			symbol : model.get('symbol'),
-			text : model.get('text'),
-			alttext : model.get('alttext'),
-			scale_h : model.get('scale_h'),
-			scale_w : model.get('scale_w'),
-			rotation : model.get('rotation')
-		});
+	buildImageUrl : function() {
+        var model = this.getAttr('model');
+
+        // src = document.location.protocol + '://' + document.location.host;
+        // if(document.location.port != 80)
+        //   src += ':' + document.location.port
+        src = 'http://barcode.hatiolab.com:81/?';
+        src += 'text=' + window.escape(model.get('text'));
+        src += '&bcid=' + (model.get('symbol') || 'code128');
+        src += '&wscale=' + (model.get('scale_w') || 2);
+        src += '&hscale=' + (model.get('scale_h') || 2);
+        src += '&rotate=' + (model.get('rotation') || 'N');
+
+        if(model.get('alttext'))
+            src += '&alttext=' + window.escape(model.get('alttext'));
+        else if(model.get('includetext'))
+            src += '&alttext=' + window.escape(model.get('text'));
+
+        if(model.get('barcolor') && model.get('barcolor') != '#000000')
+            src += '&barcolor=' + window.escape(model.get('barcolor'));
+        if(model.get('backgroundcolor') && model.get('backgroundcolor') != '#FFFFFF')
+            src += '&backgroundcolor=' + window.escape(model.get('backgroundcolor'));
+
+        return src;
 	},
-	
+
 	_change : function(e) {
 		var changed = e.changed;
-		
+
 		// TODO 이미지 변경 조건이 불분명함.
 		if(!changed.x && !changed.y) {
 			this.imageObj.src = this.buildImageUrl();
 		}
-		
+
 		Delo.PartView.prototype._change.call(this, e);
 	}
 };

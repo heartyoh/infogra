@@ -1,6 +1,6 @@
 {
   "name": "infogra",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "Infographic Modeller & Viewer",
   "readmeFilename": "README.md",
   "main": "index.js",
@@ -9,10 +9,10 @@
   "dependencies": {
     "underscore": ">=1.5.0",
     "backbone": "1.1.0",
-    "bwip": ">=0.6.3",
     "canvas": ">=1.1.0",
     "KineticJS": "git://github.com/ericdrowell/KineticJS.git",
-    "promise": "~3.2.0"
+    "promise": "~3.2.0",
+    "amdefine": "~0.1.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.7.0",

@@ -24,9 +24,6 @@ require.config({
     KineticJS: {
       exports: 'Kinetic'
     },
-    bwip: {
-      exports: 'BWIP'
-    },
     infogra: {
       deps: ['KineticJS', 'backbone', 'bwip'],
       exports: 'Delo'
