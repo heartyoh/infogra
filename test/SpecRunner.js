@@ -34,20 +34,20 @@ require.config({
   },
   urlArgs: 'bust=' + (new Date()).getTime()
 });
- 
+
 require(['require', 'chai', 'mocha'], function(require, chai){
- 
+
   var assert = chai.assert;
   var expect = chai.expect;
   var should = chai.should();
 
   mocha.setup('bdd');
- 
+
   require([
     'spec/test-create.js',
     'spec/test-load.js'
   ], function(require) {
     mocha.run();
   });
- 
+
 });

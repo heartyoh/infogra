@@ -1,6 +1,6 @@
-/*! infogra - v0.1.6 - 2014-07-09
+/*! infogra - v0.1.6 - 2015-12-21
 * https://github.com/heartyoh/infogra
-* Copyright (c) 2014 Hearty, Oh.; Licensed MIT */
+* Copyright (c) 2015 Hearty, Oh.; Licensed MIT */
 //refer to http://blog.usefunnel.com/2011/03/js-inheritance-with-backbone/
 (function () {
     "use strict";
